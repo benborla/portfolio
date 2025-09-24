@@ -16,14 +16,16 @@ export const ModeToggle = forwardRef<HTMLButtonElement, React.ButtonHTMLAttribut
       type="button"
       size="icon"
       className="px-2"
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      aria-pressed={theme === "dark"}
       onClick={(e) => {
         setTheme(theme === "dark" ? "light" : "dark");
         onClick?.(e);
       }}
       {...restProps}
     >
-      <SunIcon className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:hidden dark:text-neutral-200" />
-      <MoonIcon className="hidden h-[1.2rem] w-[1.2rem] text-neutral-800 dark:block dark:text-neutral-200" />
+      <SunIcon className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:hidden dark:text-neutral-200" aria-hidden="true" />
+      <MoonIcon className="hidden h-[1.2rem] w-[1.2rem] text-neutral-800 dark:block dark:text-neutral-200" aria-hidden="true" />
     </Button>
   );
 });

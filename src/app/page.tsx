@@ -33,7 +33,13 @@ export default function Page() {
               />
               <BlurFade delay={BLUR_FADE_DELAY * 2}>
                 <RainbowButton asChild>
-                  <Link href="/ben_borla_cv.pdf" download="Ian Benedict Borla - Resume.pdf" target="_blank">
+                  <Link
+                    href="/ben_borla_cv.pdf"
+                    download="Ian Benedict Borla - Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Download CV (PDF opens in new tab)"
+                  >
                     Download CV
                   </Link>
                 </RainbowButton>
@@ -179,7 +185,7 @@ export default function Page() {
             </div>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 14}>
-            <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
+            <div className="mb-4 ml-4 divide-y divide-dashed border-l">
               {DATA.hackathons.map((project, id) => (
                 <BlurFade
                   key={project.title + project.dates}
@@ -195,7 +201,7 @@ export default function Page() {
                   />
                 </BlurFade>
               ))}
-            </ul>
+            </div>
           </BlurFade>
         </div>
       </section>
@@ -213,7 +219,10 @@ export default function Page() {
                 Want to chat? Fill out the form below or reach out to me on{" "}
                 <Link
                   href={DATA.contact.social.X.url}
-                  className="text-blue-500 hover:underline"
+                  className="text-blue-600 hover:underline dark:text-blue-400"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="X profile (opens in new tab)"
                 >
                   X
                 </Link>

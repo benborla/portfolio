@@ -115,6 +115,7 @@ export const ResumeCard = ({
       className="block cursor-pointer transition-colors rounded-lg group"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={`View ${title} website (opens in new tab)`}
     >
       {cardContent}
     </Link>
