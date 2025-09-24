@@ -108,6 +108,18 @@ export const DATA = {
         "Converted a legacy polling system into a WebSocket-based real-time service, improving user retention, ensuring reliable data delivery, and reducing maintenance costs by offloading complex logic to a dedicated microservice.",
     },
     {
+      company: "CloudGateway",
+      href: "https://www.cloudgateway.co.uk/",
+      badges: [],
+      location: "Remote",
+      title: "Fullstack Developer (Contractual)",
+      logoUrl: "/cgw.jpeg",
+      start: "January 2025",
+      end: "March 2025",
+      description:
+        "Revamped the entire platform with a fresh UI based on the provided Figma design, building a scalable library of reusable components now powering every page. Integrated Storyblok to enable Content Managers to launch new pages instantly with the latest designs. Introduced Storybook to streamline component development and testing, and implemented a staging preview mode for seamless UAT prior to publishing.",
+    },
+    {
       company: "Melis Platform",
       badges: [],
       href: "https://www.melisplatform.com/en",
