@@ -216,16 +216,7 @@ export default function Page() {
                 Get in Touch
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Want to chat? Fill out the form below or reach out to me on{" "}
-                <Link
-                  href={DATA.contact.social.X.url}
-                  className="text-blue-600 hover:underline dark:text-blue-400"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="X profile (opens in new tab)"
-                >
-                  X
-                </Link>
+                You may reach out to me by providing your details below.
               </p>
             </div>
           </BlurFade>
