@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { GoogleAnalyticsWrapper } from "@/components/GoogleAnalyticsWrapper";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -93,6 +95,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <GoogleAnalytics />
         <StructuredData />
       </head>
       <body id="main-content"
@@ -101,13 +104,15 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-            <Toaster />
-          </TooltipProvider>
-        </ThemeProvider>
+        <GoogleAnalyticsWrapper>
+          <ThemeProvider attribute="class" defaultTheme="light">
+            <TooltipProvider delayDuration={0}>
+              {children}
+              <Navbar />
+              <Toaster />
+            </TooltipProvider>
+          </ThemeProvider>
+        </GoogleAnalyticsWrapper>
       </body>
     </html>
   );
