@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -46,8 +45,8 @@ export default function ContactForm() {
   return (
     <div className="mx-auto max-w-[600px] w-full">
       <form onSubmit={onSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 justify-start">
-          <div className="space-y-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="space-y-2 text-left">
             <Label htmlFor="name">Name</Label>
             <Input
               type="text"
@@ -55,10 +54,10 @@ export default function ContactForm() {
               id="name"
               required
               placeholder="Your name"
-              className="w-full"
+              className="w-full rounded-sm"
             />
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 text-left">
             <Label htmlFor="email">Email</Label>
             <Input
               type="email"
@@ -66,12 +65,12 @@ export default function ContactForm() {
               id="email"
               required
               placeholder="your.email@example.com"
-              className="w-full"
+              className="w-full rounded-sm"
             />
           </div>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-2 text-left">
           <Label htmlFor="subject">Subject</Label>
           <Input
             type="text"
@@ -79,18 +78,18 @@ export default function ContactForm() {
             id="subject"
             required
             placeholder="What's this about?"
-            className="w-full"
+            className="w-full rounded-sm"
           />
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-2 text-left">
           <Label htmlFor="message">Message</Label>
           <Textarea
             name="message"
             id="message"
             required
             placeholder="Your message..."
-            className="w-full min-h-[120px]"
+            className="w-full min-h-[120px] rounded-sm"
           />
         </div>
 
@@ -101,7 +100,6 @@ export default function ContactForm() {
         >
           <span className="group inline-flex items-center">
             Send Message{" "}
-            <Send className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
           </span>
           <span className="group inline-flex items-center">
             <Loader2 className="mr-2 size-4 animate-spin" />
