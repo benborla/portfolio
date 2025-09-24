@@ -8,7 +8,7 @@ export const DATA = {
   location: "Metro Manila, PH",
   locationLink: "https://www.google.com/maps/place/mandaluyong",
   description:
-    "Fullstack Engineer, who loves bringing projects to market and helping others.",
+    "Fullstack Engineer, who loves bringing projects to market and helping others build their ideas.",
   summary:
     "Senior Full-Stack Engineer and Technical Leader with deep expertise in building impactful enterprise solutions. A driven innovator who consistently tackles complex challenges and pushes boundaries to achieve ambitious goals. Known for elegantly modernizing legacy systems and leading high-performing teams. Brings a creative problem-solving approach to engineering challenges across education, gaming, and real estate sectors, consistently delivering solutions that delight users and exceed expectations.",
   avatarUrl: "/me.jpg",
@@ -86,7 +86,7 @@ export const DATA = {
     {
       company: "EDClass Ltd.",
       href: "https://www.edclass.com/",
-      badges: ["EDExam Dept"],
+      badges: [],
       location: "Remote",
       title: "Technical Consultant",
       logoUrl: "/edx.webp",

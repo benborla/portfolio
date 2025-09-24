@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { AnimatedSubscribeButton } from "@/components/ui/animated-subscribe-button";
+import { Send, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ContactForm() {
   const [result, setResult] = useState("");
@@ -13,7 +16,6 @@ export default function ContactForm() {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
-    setResult("Sending...");
 
     const formData = new FormData(event.target as HTMLFormElement);
     formData.append("access_key", "6d6362e7-28c0-43b7-9cca-38965123642b");
@@ -27,15 +29,15 @@ export default function ContactForm() {
       const data = await response.json();
 
       if (data.success) {
-        setResult("Form Submitted Successfully");
+        toast.success("Message sent successfully! I'll get back to you soon.");
         (event.target as HTMLFormElement).reset();
       } else {
         console.log("Error", data);
-        setResult(data.message);
+        toast.error(data.message || "Something went wrong. Please try again.");
       }
     } catch (error) {
       console.error("Error:", error);
-      setResult("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -44,7 +46,7 @@ export default function ContactForm() {
   return (
     <div className="mx-auto max-w-[600px] w-full">
       <form onSubmit={onSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 justify-start">
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
             <Input
@@ -92,13 +94,20 @@ export default function ContactForm() {
           />
         </div>
 
-        <Button
+        <AnimatedSubscribeButton
           type="submit"
-          disabled={isLoading}
+          subscribeStatus={isLoading}
           className="w-full sm:w-auto"
         >
-          {isLoading ? "Sending..." : "Send Message"}
-        </Button>
+          <span className="group inline-flex items-center">
+            Send Message{" "}
+            <Send className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </span>
+          <span className="group inline-flex items-center">
+            <Loader2 className="mr-2 size-4 animate-spin" />
+            Sending...
+          </span>
+        </AnimatedSubscribeButton>
       </form>
 
       {result && (
