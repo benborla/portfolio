@@ -1,0 +1,163 @@
+---
+title: "MCP Server for MySQL"
+publishedAt: "2025-03-31"
+summary: "An MCP Server for MySQL database"
+---
+
+In today's data-driven world, the ability to interact with databases through natural language has become increasingly valuable. Enter **MCP Server for MySQL** - a powerful tool that bridges the gap between Large Language Models (LLMs) like Claude and your MySQL databases.
+
+This innovative tool enables LLMs to:
+- Inspect database schemas
+- Execute SQL queries directly
+- Analyze data without manual copying
+- Perform database operations through natural language commands
+
+Whether you're a developer looking to streamline your database interactions, a data analyst seeking more intuitive ways to query data, or a database administrator wanting to leverage AI for database management, **[MCP Server for MySQL](https://github.com/benborla/mcp-server-mysql)** offers a seamless solution.
+
+### What is MCP?
+
+MCP (Model Context Protocol) is a framework that extends the capabilities of LLMs, allowing them to interact with external tools and systems. In this case, MCP Server for MySQL acts as a connector between LLMs and MySQL databases.
+
+### Key Features
+
+- **SQL Query Execution**: Send SQL queries directly to your MySQL database from your conversations with Claude
+- **Schema Inspection**: Allow Claude to understand your database structure without manual explanations
+- **Data Analysis**: Have Claude analyze your database data and return insights
+- **Security Features**: 
+  - SQL injection prevention through prepared statements
+  - Configurable write permissions (INSERT, UPDATE, DELETE)
+  - Query whitelisting and rate limiting capabilities
+  - Configurable connection encryption
+
+### Performance Features
+
+- Optimized connection pooling
+- Query result caching
+- Large result set streaming
+- Query execution plan analysis
+- Configurable query timeouts
+
+### Use Cases
+
+- **Database Exploration**: Ask Claude to explain complex database structures
+- **Query Generation**: Request specific data without writing SQL yourself
+- **Data Analysis**: Have Claude analyze patterns or insights from your database
+- **Database Maintenance**: When configured, allow Claude to help update or clean your data
+
+## Installation
+
+Getting started with MCP Server for MySQL is straightforward, with multiple installation methods available depending on your environment and preferences.
+
+### Prerequisites
+
+- Node.js v18 or higher
+- MySQL 5.7 or higher (MySQL 8.0+ recommended)
+- MySQL user with appropriate permissions
+
+### Installation Options
+
+
+#### Using Claude Desktop
+
+For Claude Desktop App, add the following to your `claude_desktop_config.json` file:
+
+```json
+{
+  "mcpServers": {
+    "mcp_server_mysql": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@benborla29/mcp-server-mysql"
+      ],
+      "env": {
+        "MYSQL_HOST": "127.0.0.1",
+        "MYSQL_PORT": "3306",
+        "MYSQL_USER": "your_username",
+        "MYSQL_PASS": "your_password",
+        "MYSQL_DB": "your_database",
+        "ALLOW_INSERT_OPERATION": "false",
+        "ALLOW_UPDATE_OPERATION": "false",
+        "ALLOW_DELETE_OPERATION": "false",
+        "PATH": "/path/to/node/bin:/usr/bin:/bin",
+        "NODE_PATH": "/path/to/node/lib/node_modules"
+      }
+    }
+  }
+}
+```
+
+#### For Cursor IDE (Version: 0.47+)
+
+Add this to your `mcp.json`
+```json
+{
+  "mcpServers": {
+    "MySQL": {
+      "command": "npx",
+      "args": [
+        "mcprunner",
+        "MYSQL_HOST=127.0.0.1",
+        "MYSQL_PORT=3306",
+        "MYSQL_USER=root",
+        "MYSQL_PASS=root",
+        "MYSQL_DB=demostore",
+        "ALLOW_INSERT_OPERATION=true",
+        "ALLOW_UPDATE_OPERATION=true",
+        "ALLOW_DELETE_OPERATION=false",
+        "--",
+        "npx",
+        "-y",
+        "@benborla29/mcp-server-mysql"
+      ]
+    }
+  }
+}
+```
+If you have a lower version you may use this
+```
+npx mcprunner MYSQL_HOST=127.0.0.1 MYSQL_PORT=3306 MYSQL_USER=root MYSQL_PASS=root MYSQL_DB=demostore ALLOW_INSERT_OPERATION=true ALLOW_UPDATE_OPERATION=true ALLOW_DELETE_OPERATION=false -- npx -y @benborla29/mcp-server-mysql
+```
+Remember to replace the values in the `env` strings.
+
+
+## How You Can Help
+
+MCP Server for MySQL is an open-source project that welcomes community contributions! If you're interested in helping improve this tool, here are some ways to get involved:
+
+### Contributing to the Project
+
+Visit the GitHub repository at [https://github.com/benborla/mcp-server-mysql/](https://github.com/benborla/mcp-server-mysql/) to:
+
+- Report bugs or issues you encounter
+- Suggest new features or improvements
+- Submit pull requests for bug fixes or new functionality
+- Help improve documentation
+
+### Development Setup
+
+If you want to contribute code:
+
+1. Fork the repository
+2. Clone your fork: `git clone https://github.com/your-username/mcp-server-mysql.git`
+3. Install dependencies: `npm install` or `pnpm install`
+4. Build the project: `npm run build` or `pnpm run build`
+5. Run tests: `npm test` or `pnpm test`
+
+### Project Roadmap
+
+The team is actively working on enhancing this MCP server with features like:
+
+- Enhanced query capabilities with prepared statements
+- Advanced security features
+- Performance optimizations
+- Comprehensive monitoring
+- Expanded schema information
+
+Your contributions to any of these areas would be greatly appreciated!
+
+---
+
+By connecting LLMs like Claude directly to your MySQL databases, MCP Server for MySQL opens up new possibilities for database interaction and management. Whether you're using it for personal projects, development workflows, or enterprise applications, this tool provides a powerful bridge between natural language AI and your structured data.
+
+Give it a try today, and join the community to help shape the future of AI-powered database interactions!

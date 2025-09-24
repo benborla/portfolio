@@ -74,7 +74,7 @@ export default function Page() {
           ))}
         </div>
       </section>
-      <section id="education">
+      <section id="education" className="hidden">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <h2 className="text-xl font-bold">Education</h2>
@@ -164,12 +164,7 @@ export default function Page() {
                   I like building things
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  During my time in university, I attended{" "}
-                  {DATA.hackathons.length}+ hackathons. People from around the
-                  country would come together and build incredible things in 2-3
-                  days. It was eye-opening to see the endless possibilities
-                  brought to life by a group of motivated and passionate
-                  individuals.
+                  I occasionally join hackathons in my free time, having participated in {DATA.hackathons.length}+ so far. They’re fast-paced, collaborative, and always leave me inspired by what’s possible in just a couple of days.
                 </p>
               </div>
             </div>
