@@ -34,7 +34,7 @@ export default function Page() {
               <BlurFade delay={BLUR_FADE_DELAY * 2}>
                 <RainbowButton asChild>
                   <Link
-                    href="/ben_borla_cv.pdf"
+                    href="https://socials.benborla.dev/cv"
                     download="Ian Benedict Borla - Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
