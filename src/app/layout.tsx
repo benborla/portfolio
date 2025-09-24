@@ -37,6 +37,20 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: DATA.name, url: DATA.url }],
   creator: DATA.name,
+  icons: {
+    icon: [
+      { url: "/icons/favicon.ico" },
+      { url: "/icons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/icons/apple-touch-icon.png",
+    other: [
+      {
+        rel: "manifest",
+        url: "/site.webmanifest",
+      },
+    ],
+  },
   openGraph: {
     title: `${DATA.name} - Fullstack Engineer`,
     description: `${DATA.name} is a ${DATA.description} Specializing in React, Next.js, Node.js, and modern web technologies.`,
