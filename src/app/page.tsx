@@ -216,7 +216,7 @@ export default function Page() {
                 Get in Touch
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                You may reach out to me by providing your details below.
+                Let’s connect—share your details below and I’ll get back to you personally.
               </p>
             </div>
           </BlurFade>
