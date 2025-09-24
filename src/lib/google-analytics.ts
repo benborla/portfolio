@@ -55,6 +55,18 @@ export const trackPageView = (url: string): void => {
 
   const win = window as unknown as WindowWithGoogleAnalytics
   const measurementId = GA_MEASUREMENT_ID || process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  
+  // Initialize gtag if it doesn't exist yet (script may still be loading)
+  initializeGoogleAnalytics()
+  
+  // Check if gtag is available, if not queue the event
+  if (typeof win.gtag !== 'function') {
+    // Queue the event in dataLayer for when gtag loads
+    win.dataLayer = win.dataLayer || []
+    win.dataLayer.push(['config', measurementId, { page_path: url }])
+    return
+  }
+  
   const config: GtagConfig = {
     page_path: url,
   }
@@ -78,6 +90,22 @@ export const trackEvent = (
   if (!isAnalyticsEnabled()) return
 
   const win = window as unknown as WindowWithGoogleAnalytics
+  
+  // Initialize gtag if it doesn't exist yet
+  initializeGoogleAnalytics()
+  
+  // Check if gtag is available, if not queue the event
+  if (typeof win.gtag !== 'function') {
+    // Queue the event in dataLayer for when gtag loads
+    win.dataLayer = win.dataLayer || []
+    win.dataLayer.push(['event', action, {
+      event_category: category,
+      event_label: label,
+      value: value,
+    }])
+    return
+  }
+  
   const params: GtagEventParams = {
     event_category: category,
     event_label: label,
