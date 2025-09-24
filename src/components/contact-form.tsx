@@ -29,7 +29,7 @@ export default function ContactForm() {
       const data = await response.json();
 
       if (data.success) {
-        toast.success("Message sent successfully! I'll get back to you soon.");
+        toast.success("Message sent successfully! I'll get back to you as soon as possible.");
         (event.target as HTMLFormElement).reset();
       } else {
         console.log("Error", data);
