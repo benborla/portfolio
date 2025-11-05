@@ -138,8 +138,8 @@ export const DATA = {
       title: "Senior Fullstack Engineer/Project Manager",
       location: "Makati, Metro Manila",
       logoUrl: "/ballys.jpeg",
-      start: "February 2019",
-      end: "March 2021",
+      start: "April 2021",
+      end: "December 2023",
       description:
         "Led a cross-functional team to develop an enterprise-wide white-label templating system and modernize legacy applications. Migrated over 1M lines of PHP code from versions 5.6–7.4 to PHP 8.2 with Symfony 5.4+ and 6.0, while transforming monolithic systems into microservices that reduced maintenance overhead by 50%. Implemented GitLab CI/CD pipelines with SonarQube integration, achieving 95% test coverage, reducing deployment failures by 80%, and cutting system response times by 40% through performance optimizations.",
     },
